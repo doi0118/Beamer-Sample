@@ -10,7 +10,7 @@
 \usepackage{algorithmic}
 \usepackage{algorithm}
 \usepackage{amsmath}
-
+\usepackage[absolute,overlay]{textpos}
 
 %%% 
 
@@ -93,11 +93,11 @@
 % ---- スタイル設定 (stop) 
 
 % ---- 内容設定 (start) 
-\title[自主ゼミ]{複素関数}
-\subtitle{}
+\title[自主ゼミ]{「ニューラルネットワークと機械学習」勉強会}
+\subtitle{CHAPTER1 ニューラルネットワークを用いた手書き文字認識}
 \author[Kimihiro Doi]{土井　公宏}
 \institute{}
-\date[]{}
+\date[]{2021/04/08}
 \subject{\LaTeX{}+Beamer} % just for pdf info
 % ---- 内容設定 (stop) 
 
@@ -116,45 +116,43 @@
 
 % 内容
 
-\section{複素関数}
-\begin{frame}{複素関数}
-\begin{itemize}
-    \item 複素関数は$w=f(z)$であらわされる
-    \item $z=x+iy,x=u+iv$
-    \item $z$平面上の点$(x,y)$から$w$平面上の点$(u,v)$への写像と考える.
-\end{itemize}
+\section{パーセプトロンとシグモイドニューロン}
+\begin{frame}{パーセプトロン}
+\begin{textblock*}{0.09\linewidth}(40pt, 220pt)
+    \centering
+    \includegraphics[width=\linewidth]{./パーセプトロン.png}
+    
+\end{textblock*}
     
 \end{frame}
 \begin{frame}
-\frametitle{$w=\frac{1}{z}$}
-・複素関数$w=\frac{1}{z}$は直線$x=k$を円に移す写像である.
-\\
-
-$w=u+iv$ が領域$D$上に存在する
-\\
-$ \Leftrightarrow $
-
-\[
-  \begin{cases}
-    z=x+iy \\
-    w=u+iv \\
-    x=k \\
-    w=\frac{1}{z}
-  \end{cases}
-\]
-を満たす実数$x,y$が存在する
-\\
-
-
-$x=\frac{z+\overline{z}}{2}$と表せることを利用して$w$の満たす方程式を計算すると,$|w-\frac{1}{2k}|=\frac{1}{2|k|}$と$k$を用いて表せ,これは円の方程式である.
+\frametitle{シグモイドニューロン}
+\begin{itemize}
+    \item シグモイドニューロンを組み合わせたものをニューラルネットワークと呼ぶ
+    \item パーセプトロンの組み合わせでは得られない高い表現力をもつ
+\end{itemize}
+\begin{textblock*}{0.06\linewidth}(20pt, 230pt)
+    \centering
+    \includegraphics[width=\linewidth]{./sigmoid.png}
+    
+\end{textblock*}
 \end{frame}
-
-\begin{frame}{一次分数関数}
-一次分数関数は以下の形で表される
-\begin{displaymath}
-w=\frac{\alpha z+\beta}{\gamma z +\delta}
-\end{displaymath}
-一次分数関数を導入する目的は,一次関数(回転,拡大,平行移動)でできなかった反転の操作を可能にするためである.これによって,直線から円や,円から円などの写像が可能になる.
+\begin{frame}{Exercises シグモイドニューロンのシミュレーション パート1}
+\begin{block}{問題}
+パーセプトロンを組み合わせたネットワークにおいて、すべての重みとバイアスを$c$倍しても挙動が変わらないことを示せ
+\end{block}
+ネットワークの挙動は,各パーセプトロンの出力によって決まるから,パーセプトロンの出力に変化がないことを示せばよい.$\sum_j cw_j x_j+cb=c(\sum_j w_j x_j+b)$であり,もとのパーセプトロンと正負が一致し,出力に変化はない.示すべきことが言えた.
+\end{frame}
+\begin{frame}{Exercises シグモイドニューロンのシミュレーション パート2}
+\begin{block}{問題}
+シグモイドニューロンを組み合わせたネットワークにおいて、$\sum wx+b\neq 0$であれば,すべての重みとバイアスを$\infty$倍すると,パーセプトロンの場合と同じ挙動をすることを示せ
+\end{block}  
+\begin{itemize}
+    \item $z=\sum wx+b>0$の場合,$z=\infty$より$\sigma(z)=\frac{1}{1+e^{-z}}=\frac{1}{1+0}=1$となり,パーセプトロンの場合と一致する.
+    \item $z=\sum wx+b<0$の場合,$z=-\infty$より$\sigma(z)=\frac{1}{1+e^{-z}}=\frac{1}{1+\infty}=0$となり,パーセプトロンの場合と一致する.
+    \item $z=\sum wx+b=0$の場合,$z=0$より$\sigma(z)=\frac{1}{1+e^{-z}}=\frac{1}{1+1}=\frac{1}{2}$となり,パーセプトロンの場合(output=0)と一致しない.
+\end{itemize}
+示すべきことが言えた.
 \end{frame}
 \section{指数関数,対数関数,ベキ関数}
 \begin{frame}{指数関数}
