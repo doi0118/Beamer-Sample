@@ -154,50 +154,5 @@
 \end{itemize}
 示すべきことが言えた.
 \end{frame}
-\section{指数関数,対数関数,ベキ関数}
-\begin{frame}{指数関数}
-\begin{displaymath}
-e^{z}=e^{x}(\cos y+i\sin y)
-\end{displaymath}
-と表せる.よって$|e^{z}|=e^{x}$であり,実部を即座に計算できる.
-\begin{block}{問題}
-$e^{z}=1$を満たす$z$を求めよ
-\end{block}
-$z$の実部は$|e^{z}|=1$より$e^{x}=1$を見たす$x$だから0である.よって$z=iy$と表せる.よって,$e^{z}=e^{iy}=\cos y+i\sin y=1$であり,$y=2n\pi$.
-$z=2n\pi i$
-\end{frame}
 
-\begin{frame}{対数関数}
-複素対数関数は多対一の写像であることに注意する.
-\begin{block}{問題}
-$z_1=-1+\sqrt 3 i$の自然対数を求めよ
-\end{block}
-$|z_1|=r_1=\sqrt {(-1)^2+(\sqrt 3)^2}=2$
-\\
-$\arg z_1=\theta_1=\frac{2}{3} \pi$(単位円を描くとわかる)
-よって$z_1=\log 2e^{i\frac{2}{3}\pi}$
-\\
-$\log z_1=\log(-1+\sqrt 3 i)$=\log 2e^{i\frac{2}{3}\pi}=\log 2+i(\frac{2}{3}\pi+2n\pi)$
-
-\end{frame}
-\begin{frame}{ベキ関数}
-\begin{block}{問題}
-$i^{i}$を計算せよ
-\end{block}
-$i^{i}=e^{i\log i}=e^{i\log (1e^{\frac{\pi}{2}i})}=e^{i(\log 1+(\frac{\pi}{2}+2n\pi)i)}$
-\end{frame}
-\section{三角関数}
-\begin{frame}{複素逆三角関数}
-\begin{block}{問題}
-$\sin^{-1}z$ を計算せよ
-\end{block}
-$z=\sin w=\frac{e^{iw}-e^{-iw}}{2i}$
-\\
-$\Leftrightarrow (e^{iw})^2-2ize^{iw}-1=0$
-\\これを二次方程式とみてとくと
-\\$e^{iw}=iz\pm\sqrt{1-z^2}$
-\\複素数のルートは$\pm$がつくから,
-\\$e^{iw}=iz+\sqrt{1-z^2}$
-\\$w=-i\log(iz+\sqrt{1-z^2)}$
-\end{frame}
 \end{document}
